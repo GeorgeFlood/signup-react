@@ -1,0 +1,64 @@
+.page-container {
+  background-color: white;
+  flex: 0 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  width: 77%;
+  & h1 {
+    color: #01274f;
+    font-size: 3.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  & p {
+    font-size: 1.6rem;
+    margin-bottom: 4rem;
+    color: rgba(#000, 0.3);
+  }
+}
+
+.btn-container {
+  display: flex;
+  width: 78%;
+  margin: auto 0 3rem 0;
+  justify-content: space-between;
+}
+
+.backBtn {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-size: 1.6rem;
+  cursor: pointer;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.35);
+}
+
+.nextBtn {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 4.7rem;
+  width: 12.3rem;
+  border-radius: 0.7rem;
+  outline: none;
+  border: none;
+  background-color: #01274f;
+  font-size: 1.6rem;
+  color: white;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+
+  &:hover {
+    top: -2px;
+  }
+
+  &:active {
+    top: 2px;
+  }
+}

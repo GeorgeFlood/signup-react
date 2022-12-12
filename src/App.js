@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles/main.css";
+import SideBar from "./SideBar";
+import InputPage from "./InputPage";
+import SelectPlan from "./SelectPlan";
+import Addons from "./Addons";
+import Summary from "./Summary";
 
-function App() {
+const App = function () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <SideBar />
+      {/* <InputPage /> */}
+      {/* <SelectPlan /> */}
+      {/* <Addons /> */}
+      <Summary />
     </div>
   );
-}
+};
 
 export default App;

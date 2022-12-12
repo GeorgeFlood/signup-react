@@ -1,0 +1,55 @@
+.sideBar {
+  flex: 0 30%;
+  margin: auto 0;
+  margin-left: 1.5rem;
+  border-radius: 1rem;
+  background-image: url(../images/bg-sidebar-desktop.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 95%;
+}
+
+.btnContainer {
+  display: flex;
+  align-items: center;
+  margin-left: 3.5rem;
+  padding-top: 2rem;
+  padding: 1.5rem 0;
+}
+
+.btnContainer:first-child {
+  margin-top: 3rem;
+}
+
+.sideBarBtn {
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  margin-right: 2rem;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  outline: 0.1rem solid rgba(white, 0.75);
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+}
+
+.sideBarBtn:focus {
+  color: #000;
+  background-color: #bee1fe;
+}
+
+.sideBarInfo p {
+  color: rgba(#fff, 0.6);
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+  text-transform: uppercase;
+}
+
+.sideBarInfo h3 {
+  color: #fff;
+  font-weight: 400;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
