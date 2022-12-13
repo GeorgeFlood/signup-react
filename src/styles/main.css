@@ -93,6 +93,14 @@ body {
   overflow: hidden;
 }
 
+.disabled {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
 .sideBar {
   flex: 0 30%;
   margin: auto 0;
