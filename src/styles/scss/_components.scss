@@ -53,6 +53,8 @@
   color: white;
   cursor: pointer;
   transition: all ease-in-out 0.3s;
+  animation: name duration timing-function delay iteration-count direction
+    fill-mode;
 
   &:hover {
     top: -2px;

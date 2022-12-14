@@ -1,8 +1,10 @@
-const SideBar = function () {
+const SideBar = function ({ handleClickPage }) {
   return (
     <div className="sideBar">
       <div className="btnContainer">
-        <button className="sideBarBtn">1</button>
+        <button className="sideBarBtn" onClick={handleClickPage}>
+          1
+        </button>
         <div className="sideBarInfo">
           <p>step 1</p>
           <h3>your info</h3>

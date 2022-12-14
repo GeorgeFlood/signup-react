@@ -3,8 +3,13 @@
   flex-direction: column;
 
   & label {
+    position: relative;
+    left: 3rem;
+    top: 0.3rem;
     font-size: 1.4rem;
     margin-bottom: 0.3rem;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
   }
 
   & input {
@@ -24,6 +29,28 @@
 
     &:focus {
       border: solid 2px #483fff;
+      background-color: rgba(#483eff, 0.15);
     }
   }
+}
+
+input:invalid {
+  animation-name: shake;
+  animation-duration: 0.5s;
+  animation-iteration-count: 2;
+  border: solid 2px #ff0800;
+}
+
+input:valid {
+  animation-name: pulse;
+  animation-duration: 0.5s;
+  border: solid 2px #0ec144;
+}
+
+input:focus::placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+  transition: all 0.2s ease-in-out;
 }

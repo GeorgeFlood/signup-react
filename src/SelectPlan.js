@@ -1,6 +1,17 @@
 import { useState } from "react";
 
 const SelectPlan = function () {
+  const [selectedCard, setSelectedCard] = useState(null);
+  const [isChecked, setIsChecked] = useState(false);
+
+  function handleCheckboxChange(event) {
+    setIsChecked(event.target.checked);
+  }
+
+  function handleCardClick(cardId) {
+    setSelectedCard(cardId);
+  }
+
   return (
     <div className="page-container selectPlan-container">
       <div className="header">
@@ -9,7 +20,11 @@ const SelectPlan = function () {
       </div>
 
       <div className="cards">
-        <div className="card">
+        <div
+          className="card"
+          onClick={() => handleCardClick(1)}
+          style={{ backgroundColor: selectedCard === 1 ? "#f8f9fe" : "white" }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="40"
@@ -31,7 +46,11 @@ const SelectPlan = function () {
           </div>
         </div>
 
-        <div className="card">
+        <div
+          className="card"
+          onClick={() => handleCardClick(2)}
+          style={{ backgroundColor: selectedCard === 2 ? "#f8f9fe" : "white" }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="40"
@@ -53,7 +72,11 @@ const SelectPlan = function () {
           </div>
         </div>
 
-        <div className="card">
+        <div
+          className="card"
+          onClick={() => handleCardClick(3)}
+          style={{ backgroundColor: selectedCard === 3 ? "#f8f9fe" : "white" }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="40"
@@ -77,12 +100,12 @@ const SelectPlan = function () {
       </div>
 
       <div className="toggleDiv">
-        <h4>Monthly</h4>
+        <h4 style={{ opacity: isChecked ? 0.5 : 1 }}>Monthly</h4>
         <label class="switch">
-          <input type="checkbox" />
+          <input type="checkbox" onChange={handleCheckboxChange} />
           <span class="slider round"></span>
         </label>
-        <h4>Yearly</h4>
+        <h4 style={{ opacity: isChecked ? 1 : 0.5 }}>Yearly</h4>
       </div>
 
       <div className="btn-container">

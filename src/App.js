@@ -9,17 +9,17 @@ import Summary from "./Summary";
 const App = function () {
   const [page, setPage] = useState("disabled");
 
-  const handleClickPage = function (num) {
-    setPage("active");
+  const handleClickPage = function () {
+    page === "disabled" ? setPage("active") : setPage("disabled");
   };
 
   return (
     <div className="container">
-      <SideBar />
-      <InputPage pageSet={page} />
-      {/* <SelectPlan pageSet={page} />
-      <Addons pageSet={page} />
-      <Summary pageSet={page} /> */}
+      <SideBar handleClickPage={handleClickPage} />
+      {/* <InputPage pageSet={page} /> */}
+      <SelectPlan pageSet={page} />
+      {/* <Addons pageSet={page} /> */}
+      {/* <Summary pageSet={page} />  */}
     </div>
   );
 };

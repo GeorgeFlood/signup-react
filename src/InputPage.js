@@ -1,4 +1,4 @@
-const InputPage = function ({ pageSet }) {
+const InputPage = function ({ pageSet, handleClickPage }) {
   console.log(pageSet);
   return (
     <div className={`page-container ${pageSet}`}>
@@ -9,7 +9,7 @@ const InputPage = function ({ pageSet }) {
 
       <form>
         <div className="form-col">
-          <label>Name</label>
+          <label for="name">Name</label>
           <input
             type="text"
             name="name"
@@ -19,7 +19,7 @@ const InputPage = function ({ pageSet }) {
         </div>
 
         <div className="form-col">
-          <label>Email Address</label>
+          <label for="email">Email Address</label>
           <input
             type="email"
             name="email"
@@ -29,8 +29,9 @@ const InputPage = function ({ pageSet }) {
         </div>
 
         <div className="form-col">
-          <label>Phone Number</label>
+          <label for="phone">Phone Number</label>
           <input
+            id="myInput"
             type="phone"
             name="phone"
             placeholder="eg. + 1 234 567 890"
