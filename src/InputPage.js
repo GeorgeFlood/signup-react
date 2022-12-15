@@ -1,7 +1,6 @@
-const InputPage = function ({ pageSet, handleClickPage }) {
-  console.log(pageSet);
+const InputPage = function () {
   return (
-    <div className={`page-container ${pageSet}`}>
+    <div className={"page-container"}>
       <div className="header">
         <h1>Personal Info</h1>
         <p>Please provide your name, email address, and phone number.</p>
