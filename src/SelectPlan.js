@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const SelectPlan = function () {
+const SelectPlan = function ({ setCurrentPage }) {
   const [selectedCard, setSelectedCard] = useState(null);
   const [isChecked, setIsChecked] = useState(false);
 
@@ -127,8 +127,12 @@ const SelectPlan = function () {
       </div>
 
       <div className="btn-container">
-        <button className="backBtn">Go Back</button>
-        <button className="nextBtn">Next Step </button>
+        <button className="backBtn" onClick={() => setCurrentPage("YourInfo")}>
+          Go Back
+        </button>
+        <button className="nextBtn" onClick={() => setCurrentPage("AddOns")}>
+          Next Step{" "}
+        </button>
       </div>
     </div>
   );

@@ -12,11 +12,15 @@ const App = function () {
 
   return (
     <div className="container">
-      <SideBar currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      {currentPage === "YourInfo" && <InputPage />}
-      {currentPage === "SelectPlan" && <SelectPlan />}
-      {currentPage === "AddOns" && <Addons />}
-      {currentPage === "Summary" && <Summary />}
+      <SideBar setCurrentPage={setCurrentPage} />
+      {currentPage === "YourInfo" && (
+        <InputPage setCurrentPage={setCurrentPage} />
+      )}
+      {currentPage === "SelectPlan" && (
+        <SelectPlan setCurrentPage={setCurrentPage} />
+      )}
+      {currentPage === "AddOns" && <Addons setCurrentPage={setCurrentPage} />}
+      {currentPage === "Summary" && <Summary setCurrentPage={setCurrentPage} />}
     </div>
   );
 };

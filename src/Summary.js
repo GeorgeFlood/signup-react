@@ -1,4 +1,4 @@
-const Summary = function () {
+const Summary = function ({ setCurrentPage }) {
   return (
     <div className="page-container summary-container">
       <div className="header">
@@ -38,7 +38,9 @@ const Summary = function () {
       </div>
 
       <div className="btn-container">
-        <button className="backBtn">Go Back</button>
+        <button className="backBtn" onClick={() => setCurrentPage("AddOns")}>
+          Go Back
+        </button>
         <button className="nextBtn">Confirm</button>
       </div>
     </div>

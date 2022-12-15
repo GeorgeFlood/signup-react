@@ -1,4 +1,6 @@
-const InputPage = function () {
+import { useState } from "react";
+
+const InputPage = function ({ setCurrentPage }) {
   return (
     <div className={"page-container"}>
       <div className="header">
@@ -39,7 +41,12 @@ const InputPage = function () {
 
         <div className="btn-container">
           <button className="backBtn"></button>
-          <button className="nextBtn">Next Step</button>
+          <button
+            className="nextBtn"
+            onClick={() => setCurrentPage("SelectPlan")}
+          >
+            Next Step
+          </button>
         </div>
       </form>
     </div>

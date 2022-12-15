@@ -1,4 +1,4 @@
-const Addons = function () {
+const Addons = function ({ setCurrentPage }) {
   return (
     <div className="page-container addons-container">
       <div className="header">
@@ -48,8 +48,15 @@ const Addons = function () {
       </div>
 
       <div className="btn-container">
-        <button className="backBtn">Go Back</button>
-        <button className="nextBtn">Next Step</button>
+        <button
+          className="backBtn"
+          onClick={() => setCurrentPage("SelectPlan")}
+        >
+          Go Back
+        </button>
+        <button className="nextBtn" onClick={() => setCurrentPage("Summary")}>
+          Next Step
+        </button>
       </div>
     </div>
   );

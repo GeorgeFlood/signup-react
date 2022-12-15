@@ -1,8 +1,6 @@
 import { useState } from "react";
 
-const SideBar = function ({ currentPage, setCurrentPage }) {
-  console.log(currentPage);
-
+const SideBar = function ({ setCurrentPage }) {
   return (
     <div className="sideBar">
       <div className="btnContainer">
