@@ -1,4 +1,10 @@
+import { useState } from "react";
+
 const Addons = function ({ setCurrentPage }) {
+  const [input1Checked, setInput1Checked] = useState(false);
+  const [input2Checked, setInput2Checked] = useState(false);
+  const [input3Checked, setInput3Checked] = useState(false);
+
   return (
     <div className="page-container addons-container">
       <div className="header">
@@ -7,9 +13,12 @@ const Addons = function ({ setCurrentPage }) {
       </div>
 
       <div className="option-container">
-        <div className="option">
+        <div className={`option ${input1Checked ? "option--checked" : ""}`}>
           <div className="option--col1">
-            <input type="checkbox"></input>
+            <input
+              type="checkbox"
+              onClick={() => setInput1Checked(!input1Checked)}
+            ></input>
             <div className="option--info">
               <h4>Online Service</h4>
               <p>Access to multiplayer games</p>
@@ -20,9 +29,12 @@ const Addons = function ({ setCurrentPage }) {
           </div>
         </div>
 
-        <div className="option">
+        <div className={`option ${input2Checked ? "option--checked" : ""}`}>
           <div className="option--col1">
-            <input type="checkbox"></input>
+            <input
+              type="checkbox"
+              onClick={() => setInput2Checked(!input2Checked)}
+            ></input>
             <div className="option--info">
               <h4>Larger storage</h4>
               <p>Extra 1TB of cloud save</p>
@@ -33,9 +45,12 @@ const Addons = function ({ setCurrentPage }) {
           </div>
         </div>
 
-        <div className="option">
+        <div className={`option ${input3Checked ? "option--checked" : ""}`}>
           <div className="option--col1">
-            <input type="checkbox"></input>
+            <input
+              type="checkbox"
+              onClick={() => setInput3Checked(!input3Checked)}
+            ></input>
             <div className="option--info">
               <h4>Customizable profile</h4>
               <p>Custom theme on your profile</p>

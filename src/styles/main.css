@@ -326,6 +326,7 @@ input:focus::placeholder {
   border-radius: 7px;
   border: 2px solid rgba(0, 0, 0, 0.08);
   cursor: pointer;
+  transition: all ease-in-out 0.35s;
 }
 .card--info {
   margin: auto 0 1.3rem 1.3rem;
@@ -441,6 +442,11 @@ input:checked + .slider:before {
   border-radius: 0.75rem;
   margin: 0.85rem 0;
   padding: 0 2rem;
+  transition: all ease-in-out 0.3s;
+}
+.option--checked {
+  background-color: #f8f9fe;
+  border: 2px solid #483eff;
 }
 .option input {
   width: 2.3rem;
