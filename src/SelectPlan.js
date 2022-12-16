@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const SelectPlan = function ({ setCurrentPage }) {
+const SelectPlan = function ({ setCurrentPage, setActiveButton }) {
   const [selectedCard, setSelectedCard] = useState(null);
   const [isChecked, setIsChecked] = useState(false);
 
@@ -11,6 +11,11 @@ const SelectPlan = function ({ setCurrentPage }) {
   function handleCardClick(cardId) {
     setSelectedCard(cardId);
   }
+
+  const handleClick = (page) => {
+    setCurrentPage(page);
+    setActiveButton(page);
+  };
 
   return (
     <div className="page-container selectPlan-container">
@@ -127,10 +132,10 @@ const SelectPlan = function ({ setCurrentPage }) {
       </div>
 
       <div className="btn-container">
-        <button className="backBtn" onClick={() => setCurrentPage("YourInfo")}>
+        <button className="backBtn" onClick={() => handleClick("YourInfo")}>
           Go Back
         </button>
-        <button className="nextBtn" onClick={() => setCurrentPage("AddOns")}>
+        <button className="nextBtn" onClick={() => handleClick("AddOns")}>
           Next Step{" "}
         </button>
       </div>

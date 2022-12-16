@@ -128,8 +128,8 @@ body {
   color: white;
   cursor: pointer;
   transition: all ease-in-out 0.3s;
-  -webkit-animation: name duration timing-function delay iteration-count direction fill-mode;
-          animation: name duration timing-function delay iteration-count direction fill-mode;
+  -webkit-animation: name duration timing-function delay iteration-count direction;
+          animation: name duration timing-function delay iteration-count direction;
 }
 .nextBtn:hover {
   top: -2px;
@@ -229,11 +229,8 @@ body {
   flex-direction: column;
 }
 .form-col label {
-  position: relative;
-  left: 3rem;
-  top: 0.3rem;
   font-size: 1.4rem;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.4rem;
   opacity: 1;
   transition: all 0.3s ease-in-out;
 }
@@ -263,23 +260,12 @@ body {
   border: solid 2px #483fff;
   background-color: rgba(72, 62, 255, 0.15);
 }
-
-input:invalid {
-  -webkit-animation-name: shake;
-          animation-name: shake;
-  -webkit-animation-duration: 0.5s;
-          animation-duration: 0.5s;
-  -webkit-animation-iteration-count: 2;
-          animation-iteration-count: 2;
-  border: solid 2px #ff0800;
+.form-col input:focus + label {
+  opacity: 0;
 }
-
-input:valid {
-  -webkit-animation-name: pulse;
-          animation-name: pulse;
-  -webkit-animation-duration: 0.5s;
-          animation-duration: 0.5s;
-  border: solid 2px #0ec144;
+.form-col .invalid {
+  background-color: rgba(255, 103, 103, 0.15);
+  border: 2px solid #ff6767;
 }
 
 input:focus::-moz-placeholder {

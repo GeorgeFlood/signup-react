@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-const SideBar = function ({ setCurrentPage }) {
-  const [activeButton, setActiveButton] = useState("YourInfo");
+const SideBar = function ({ setCurrentPage, activeButton, setActiveButton }) {
   const handleClick = (page) => {
     setCurrentPage(page);
     setActiveButton(page);

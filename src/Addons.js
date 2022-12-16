@@ -1,9 +1,14 @@
 import { useState } from "react";
 
-const Addons = function ({ setCurrentPage }) {
+const Addons = function ({ setCurrentPage, setActiveButton }) {
   const [input1Checked, setInput1Checked] = useState(false);
   const [input2Checked, setInput2Checked] = useState(false);
   const [input3Checked, setInput3Checked] = useState(false);
+
+  const handleClick = function (page) {
+    setActiveButton(page);
+    setCurrentPage(page);
+  };
 
   return (
     <div className="page-container addons-container">
@@ -63,13 +68,10 @@ const Addons = function ({ setCurrentPage }) {
       </div>
 
       <div className="btn-container">
-        <button
-          className="backBtn"
-          onClick={() => setCurrentPage("SelectPlan")}
-        >
+        <button className="backBtn" onClick={() => handleClick("SelectPlan")}>
           Go Back
         </button>
-        <button className="nextBtn" onClick={() => setCurrentPage("Summary")}>
+        <button className="nextBtn" onClick={() => handleClick("Summary")}>
           Next Step
         </button>
       </div>

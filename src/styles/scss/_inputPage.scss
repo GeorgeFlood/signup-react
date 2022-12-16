@@ -3,11 +3,8 @@
   flex-direction: column;
 
   & label {
-    position: relative;
-    left: 3rem;
-    top: 0.3rem;
     font-size: 1.4rem;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.4rem;
     opacity: 1;
     transition: all 0.3s ease-in-out;
   }
@@ -30,21 +27,17 @@
     &:focus {
       border: solid 2px #483fff;
       background-color: rgba(#483eff, 0.15);
+
+      & + label {
+        opacity: 0;
+      }
     }
   }
-}
 
-input:invalid {
-  animation-name: shake;
-  animation-duration: 0.5s;
-  animation-iteration-count: 2;
-  border: solid 2px #ff0800;
-}
-
-input:valid {
-  animation-name: pulse;
-  animation-duration: 0.5s;
-  border: solid 2px #0ec144;
+  & .invalid {
+    background-color: rgba(rgb(255, 103, 103), 0.15);
+    border: 2px solid rgba(rgb(255, 103, 103), 1);
+  }
 }
 
 input:focus::placeholder {

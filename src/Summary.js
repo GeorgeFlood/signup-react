@@ -1,4 +1,8 @@
-const Summary = function ({ setCurrentPage }) {
+const Summary = function ({ setCurrentPage, setActiveButton }) {
+  const handleClick = function (page) {
+    setActiveButton(page);
+    setCurrentPage(page);
+  };
   return (
     <div className="page-container summary-container">
       <div className="header">
@@ -38,7 +42,7 @@ const Summary = function ({ setCurrentPage }) {
       </div>
 
       <div className="btn-container">
-        <button className="backBtn" onClick={() => setCurrentPage("AddOns")}>
+        <button className="backBtn" onClick={() => handleClick("AddOns")}>
           Go Back
         </button>
         <button className="nextBtn">Confirm</button>

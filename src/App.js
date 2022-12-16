@@ -9,18 +9,39 @@ import Summary from "./Summary";
 
 const App = function () {
   const [currentPage, setCurrentPage] = useState("YourInfo");
+  const [activeButton, setActiveButton] = useState("YourInfo");
 
   return (
     <div className="container">
-      <SideBar setCurrentPage={setCurrentPage} />
+      <SideBar
+        setCurrentPage={setCurrentPage}
+        activeButton={activeButton}
+        setActiveButton={setActiveButton}
+      />
       {currentPage === "YourInfo" && (
-        <InputPage setCurrentPage={setCurrentPage} />
+        <InputPage
+          setCurrentPage={setCurrentPage}
+          setActiveButton={setActiveButton}
+        />
       )}
       {currentPage === "SelectPlan" && (
-        <SelectPlan setCurrentPage={setCurrentPage} />
+        <SelectPlan
+          setCurrentPage={setCurrentPage}
+          setActiveButton={setActiveButton}
+        />
       )}
-      {currentPage === "AddOns" && <Addons setCurrentPage={setCurrentPage} />}
-      {currentPage === "Summary" && <Summary setCurrentPage={setCurrentPage} />}
+      {currentPage === "AddOns" && (
+        <Addons
+          setCurrentPage={setCurrentPage}
+          setActiveButton={setActiveButton}
+        />
+      )}
+      {currentPage === "Summary" && (
+        <Summary
+          setCurrentPage={setCurrentPage}
+          setActiveButton={setActiveButton}
+        />
+      )}
     </div>
   );
 };
