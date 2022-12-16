@@ -1,12 +1,20 @@
 import { useState } from "react";
 
 const SideBar = function ({ setCurrentPage }) {
+  const [activeButton, setActiveButton] = useState("YourInfo");
+  const handleClick = (page) => {
+    setCurrentPage(page);
+    setActiveButton(page);
+  };
+
   return (
     <div className="sideBar">
       <div className="btnContainer">
         <button
-          className="sideBarBtn"
-          onClick={() => setCurrentPage("YourInfo")}
+          className={`sideBarBtn ${
+            activeButton === "YourInfo" ? "active" : ""
+          }`}
+          onClick={() => handleClick("YourInfo")}
         >
           1
         </button>
@@ -18,8 +26,10 @@ const SideBar = function ({ setCurrentPage }) {
 
       <div className="btnContainer">
         <button
-          className="sideBarBtn"
-          onClick={() => setCurrentPage("SelectPlan")}
+          className={`sideBarBtn ${
+            activeButton === "SelectPlan" ? "active" : ""
+          }`}
+          onClick={() => handleClick("SelectPlan")}
         >
           2
         </button>
@@ -30,7 +40,10 @@ const SideBar = function ({ setCurrentPage }) {
       </div>
 
       <div className="btnContainer">
-        <button className="sideBarBtn" onClick={() => setCurrentPage("AddOns")}>
+        <button
+          className={`sideBarBtn ${activeButton === "AddOns" ? "active" : ""}`}
+          onClick={() => handleClick("AddOns")}
+        >
           3
         </button>
         <div className="sideBarInfo">
@@ -41,8 +54,8 @@ const SideBar = function ({ setCurrentPage }) {
 
       <div className="btnContainer">
         <button
-          className="sideBarBtn"
-          onClick={() => setCurrentPage("Summary")}
+          className={`sideBarBtn ${activeButton === "Summary" ? "active" : ""}`}
+          onClick={() => handleClick("Summary")}
         >
           4
         </button>
