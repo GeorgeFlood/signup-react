@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/signup-react/static/css/main.427bb5e1.css",
+    "main.js": "/signup-react/static/js/main.26f7265f.js",
+    "static/media/bg-sidebar-desktop.svg": "/signup-react/static/media/bg-sidebar-desktop.6918153f38678372ceb1.svg",
+    "index.html": "/signup-react/index.html",
+    "main.427bb5e1.css.map": "/signup-react/static/css/main.427bb5e1.css.map",
+    "main.26f7265f.js.map": "/signup-react/static/js/main.26f7265f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.427bb5e1.css",
+    "static/js/main.26f7265f.js"
+  ]
+}
