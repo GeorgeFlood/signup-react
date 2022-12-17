@@ -51,6 +51,7 @@ const App = function () {
         <Addons
           setCurrentPage={setCurrentPage}
           setActiveButton={setActiveButton}
+          isChecked={isChecked}
           state={state}
           setState={setState}
         />
@@ -61,6 +62,7 @@ const App = function () {
           setActiveButton={setActiveButton}
           plan={plan}
           MonthOrYearBoolean={isChecked}
+          isChecked={isChecked}
           state={state}
         />
       )}

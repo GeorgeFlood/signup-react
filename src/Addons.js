@@ -1,6 +1,10 @@
-import { useState } from "react";
-
-const Addons = function ({ setCurrentPage, setActiveButton, state, setState }) {
+const Addons = function ({
+  setCurrentPage,
+  setActiveButton,
+  state,
+  setState,
+  isChecked,
+}) {
   const handleClick = function (page) {
     setActiveButton(page);
     setCurrentPage(page);
@@ -30,7 +34,7 @@ const Addons = function ({ setCurrentPage, setActiveButton, state, setState }) {
             </div>
           </div>
           <div className="option--col2">
-            <p>+£1/mo</p>
+            <p>{`${isChecked ? "£10/yr" : "£1/mo"}`}</p>
           </div>
         </div>
 
@@ -50,7 +54,7 @@ const Addons = function ({ setCurrentPage, setActiveButton, state, setState }) {
             </div>
           </div>
           <div className="option--col2">
-            <p>+£2/mo</p>
+            <p>{`${isChecked ? "£20/yr" : "£2/mo"}`}</p>
           </div>
         </div>
 
@@ -70,7 +74,7 @@ const Addons = function ({ setCurrentPage, setActiveButton, state, setState }) {
             </div>
           </div>
           <div className="option--col2">
-            <p>+£2/mo</p>
+            <p>{`${isChecked ? "£20/yr" : "£2/mo"}`}</p>
           </div>
         </div>
       </div>

@@ -1,57 +1,66 @@
-const Summary = function ({
+import React, { useMemo } from "react";
+
+const planNames = {
+  1: "Arcade",
+  2: "Advanced",
+  3: "Pro",
+};
+
+const Summary = ({
   setCurrentPage,
   setActiveButton,
   plan,
   MonthOrYearBoolean,
   state,
-}) {
-  const handleClick = function (page) {
+  isChecked,
+}) => {
+  const handleClick = (page) => {
     setActiveButton(page);
     setCurrentPage(page);
   };
 
-  let planString;
-  switch (plan) {
-    case 1:
-      planString = "Arcade";
-      break;
-    case 2:
-      planString = "Advanced";
-      break;
-    case 3:
-      planString = "Pro";
-      break;
-    default:
-      planString = "";
+  const planString = useMemo(() => planNames[plan] || "", [plan]);
+  const price = useMemo(() => {
+    if (MonthOrYearBoolean) {
+      if (planString === "Arcade") {
+        return "£90/yr";
+      } else if (planString === "Advanced") {
+        return "£120/yr";
+      } else if (planString === "Pro") {
+        return "£150/yr";
+      }
+    } else {
+      if (planString === "Arcade") {
+        return "£9/mo";
+      } else if (planString === "Advanced") {
+        return "£12/mo";
+      } else if (planString === "Pro") {
+        return "£15/mo";
+      }
+    }
+  }, [MonthOrYearBoolean, planString]);
+
+  let total = 0;
+
+  if (state.input1Checked) {
+    total += isChecked ? 10 : 1;
+  }
+  if (state.input2Checked) {
+    total += isChecked ? 20 : 2;
+  }
+  if (state.input3Checked) {
+    total += isChecked ? 20 : 2;
   }
 
-  const addonStyle = function (input) {
-    return { display: state[input] ? "" : "none" };
-  };
-
-  let price;
-  if (MonthOrYearBoolean) {
-    if (planString === "Arcade") {
-      price = "£90/yr";
-    } else if (planString === "Advanced") {
-      price = "£120/yr";
-    } else if (planString === "Pro") {
-      price = "£150/yr";
-    }
-  } else {
-    if (planString === "Arcade") {
-      price = "£9/mo";
-    } else if (planString === "Advanced") {
-      price = "£12/mo";
-    } else if (planString === "Pro") {
-      price = "£15/mo";
-    }
+  if (plan === 1) {
+    total += isChecked ? 90 : 9;
   }
-
-  console.log(state);
-  // input1Checked: false,
-  // input2Checked: false,
-  // input3Checked: false,
+  if (plan === 2) {
+    total += isChecked ? 120 : 12;
+  }
+  if (plan === 3) {
+    total += isChecked ? 150 : 15;
+  }
 
   return (
     <div className="page-container summary-container">
@@ -64,15 +73,14 @@ const Summary = function ({
         <div className="top">
           <div className="custom-box">
             <h3>
-              {`${planString}`} (
-              {`${MonthOrYearBoolean ? "Yearly" : "Monthly"}`})
+              {planString} ({MonthOrYearBoolean ? "Yearly" : "Monthly"})
             </h3>{" "}
             <a href="#" onClick={() => handleClick("SelectPlan")}>
               Change
             </a>
           </div>
           <div className="custom-box__price">
-            <h4>{`${price ? price : ""}`}</h4>{" "}
+            <h4>{price || ""}</h4>{" "}
           </div>
         </div>
 
@@ -80,22 +88,37 @@ const Summary = function ({
 
         <div className="extra">
           <div className="extra--addons">
-            <p style={addonStyle("input1Checked")}>Online service</p>
-            <p style={addonStyle("input2Checked")}>Larger storage</p>
-            <p style={addonStyle("input3Checked")}>Customizable profile</p>
+            <p style={{ display: state.input1Checked ? "" : "none" }}>
+              Online service
+            </p>
+            <p style={{ display: state.input2Checked ? "" : "none" }}>
+              Larger storage
+            </p>
+            <p style={{ display: state.input3Checked ? "" : "none" }}>
+              Customizable profile
+            </p>
           </div>
 
           <div className="extra--prices">
-            <h4>+£1/mo</h4>
-            <h4>+£2/mo</h4>
-            <h4>+£2/mo</h4>
+            <h4 style={{ display: state.input1Checked ? "" : "none" }}>
+              {`${isChecked ? "£10/yr" : "£1/mo"}`}
+            </h4>
+            <h4 style={{ display: state.input2Checked ? "" : "none" }}>
+              {`${isChecked ? "£20/yr" : "£2/mo"}`}
+            </h4>
+            <h4 style={{ display: state.input3Checked ? "" : "none" }}>
+              {`${isChecked ? "£20/yr" : "£2/mo"}`}
+            </h4>
           </div>
         </div>
       </div>
 
       <div className="total">
         <p>Total ({`${MonthOrYearBoolean ? "Yearly" : "Monthly"}`})</p>
-        <h3>+£12/mo</h3>
+        <h3>
+          £{total}
+          {isChecked ? "/yr" : "/mo"}
+        </h3>
       </div>
 
       <div className="btn-container">
