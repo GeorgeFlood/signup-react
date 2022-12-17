@@ -1,19 +1,24 @@
 import { useState } from "react";
 
-const InputPage = function ({ setCurrentPage, setActiveButton }) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-
+const InputPage = function ({
+  info,
+  setInfo,
+  setCurrentPage,
+  setActiveButton,
+}) {
   //if the name variable is empty, the class should be 'invalid'
   // otherwise the class should be as usual;
   const handleNameInput = function (e) {
-    setName(e.target.value);
+    setInfo({ ...info, name: e.target.value });
   };
 
   //if the email variable is empty, the class should be 'invalid'
   // otherwise the class should be as usual;
   const handleEmailInput = function (e) {
-    setEmail(e.target.value);
+    setInfo({ ...info, email: e.target.value });
+  };
+  const handlePhoneInput = function (e) {
+    setInfo({ ...info, phone: e.target.value });
   };
 
   const handleClick = (page) => {
@@ -32,24 +37,28 @@ const InputPage = function ({ setCurrentPage, setActiveButton }) {
         <div className="form-col">
           <label for="name">Name</label>
           <input
-            className={`${name !== "" && name.includes(" ") ? "" : "invalid"}`}
+            className={`${
+              info.name !== "" && info.name.includes(" ") ? "" : "invalid"
+            }`}
             type="text"
             name="name"
-            placeholder="Vanessa Mint"
+            placeholder="Stephen King"
             required
             onChange={handleNameInput}
+            value={info.name}
           ></input>
         </div>
 
         <div className="form-col">
           <label for="email">Email Address</label>
           <input
-            className={`${email.includes("@") ? "" : "invalid"}`}
+            className={`${info.email.includes("@") ? "" : "invalid"}`}
             type="email"
             name="email"
-            placeholder="VanessaMint@gmail.com"
+            placeholder="StephenKing@gmail.com"
             required
             onChange={handleEmailInput}
+            value={info.email}
           ></input>
         </div>
 
@@ -60,6 +69,8 @@ const InputPage = function ({ setCurrentPage, setActiveButton }) {
             type="phone"
             name="phone"
             placeholder="eg. + 1 234 567 890"
+            onChange={handlePhoneInput}
+            value={info.phone}
           ></input>
         </div>
 

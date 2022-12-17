@@ -8,12 +8,20 @@ import Addons from "./Addons";
 import Summary from "./Summary";
 
 const App = function () {
+  const [info, setInfo] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
   const [currentPage, setCurrentPage] = useState("YourInfo");
   const [activeButton, setActiveButton] = useState("YourInfo");
   const [plan, setPlan] = useState("");
   const [isChecked, setIsChecked] = useState(false);
-
-  console.log(isChecked);
+  const [state, setState] = useState({
+    input1Checked: false,
+    input2Checked: false,
+    input3Checked: false,
+  });
 
   return (
     <div className="container">
@@ -24,6 +32,8 @@ const App = function () {
       />
       {currentPage === "YourInfo" && (
         <InputPage
+          info={info}
+          setInfo={setInfo}
           setCurrentPage={setCurrentPage}
           setActiveButton={setActiveButton}
         />
@@ -41,6 +51,8 @@ const App = function () {
         <Addons
           setCurrentPage={setCurrentPage}
           setActiveButton={setActiveButton}
+          state={state}
+          setState={setState}
         />
       )}
       {currentPage === "Summary" && (
@@ -49,6 +61,7 @@ const App = function () {
           setActiveButton={setActiveButton}
           plan={plan}
           MonthOrYearBoolean={isChecked}
+          state={state}
         />
       )}
     </div>

@@ -3,6 +3,7 @@ const Summary = function ({
   setActiveButton,
   plan,
   MonthOrYearBoolean,
+  state,
 }) {
   const handleClick = function (page) {
     setActiveButton(page);
@@ -24,6 +25,10 @@ const Summary = function ({
       planString = "";
   }
 
+  const addonStyle = function (input) {
+    return { display: state[input] ? "" : "none" };
+  };
+
   let price;
   if (MonthOrYearBoolean) {
     if (planString === "Arcade") {
@@ -43,7 +48,10 @@ const Summary = function ({
     }
   }
 
-  console.log(planString);
+  console.log(state);
+  // input1Checked: false,
+  // input2Checked: false,
+  // input3Checked: false,
 
   return (
     <div className="page-container summary-container">
@@ -59,13 +67,12 @@ const Summary = function ({
               {`${planString}`} (
               {`${MonthOrYearBoolean ? "Yearly" : "Monthly"}`})
             </h3>{" "}
-            {/*This needs to be dynmatic with JS */}
             <a href="#" onClick={() => handleClick("SelectPlan")}>
               Change
             </a>
           </div>
           <div className="custom-box__price">
-            <h4>{`${price}`}</h4> {/*This needs to be dynmatic with JS */}
+            <h4>{`${price ? price : ""}`}</h4>{" "}
           </div>
         </div>
 
@@ -73,12 +80,14 @@ const Summary = function ({
 
         <div className="extra">
           <div className="extra--addons">
-            <p>Online service</p>
-            <p>Larger storage</p>
+            <p style={addonStyle("input1Checked")}>Online service</p>
+            <p style={addonStyle("input2Checked")}>Larger storage</p>
+            <p style={addonStyle("input3Checked")}>Customizable profile</p>
           </div>
 
           <div className="extra--prices">
             <h4>+£1/mo</h4>
+            <h4>+£2/mo</h4>
             <h4>+£2/mo</h4>
           </div>
         </div>

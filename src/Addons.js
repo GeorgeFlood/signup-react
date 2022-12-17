@@ -1,10 +1,6 @@
 import { useState } from "react";
 
-const Addons = function ({ setCurrentPage, setActiveButton }) {
-  const [input1Checked, setInput1Checked] = useState(false);
-  const [input2Checked, setInput2Checked] = useState(false);
-  const [input3Checked, setInput3Checked] = useState(false);
-
+const Addons = function ({ setCurrentPage, setActiveButton, state, setState }) {
   const handleClick = function (page) {
     setActiveButton(page);
     setCurrentPage(page);
@@ -18,11 +14,15 @@ const Addons = function ({ setCurrentPage, setActiveButton }) {
       </div>
 
       <div className="option-container">
-        <div className={`option ${input1Checked ? "option--checked" : ""}`}>
+        <div
+          className={`option ${state.input1Checked ? "option--checked" : ""}`}
+        >
           <div className="option--col1">
             <input
               type="checkbox"
-              onClick={() => setInput1Checked(!input1Checked)}
+              onClick={() =>
+                setState({ ...state, input1Checked: !state.input1Checked })
+              }
             ></input>
             <div className="option--info">
               <h4>Online Service</h4>
@@ -34,11 +34,15 @@ const Addons = function ({ setCurrentPage, setActiveButton }) {
           </div>
         </div>
 
-        <div className={`option ${input2Checked ? "option--checked" : ""}`}>
+        <div
+          className={`option ${state.input2Checked ? "option--checked" : ""}`}
+        >
           <div className="option--col1">
             <input
               type="checkbox"
-              onClick={() => setInput2Checked(!input2Checked)}
+              onClick={() =>
+                setState({ ...state, input2Checked: !state.input2Checked })
+              }
             ></input>
             <div className="option--info">
               <h4>Larger storage</h4>
@@ -50,11 +54,15 @@ const Addons = function ({ setCurrentPage, setActiveButton }) {
           </div>
         </div>
 
-        <div className={`option ${input3Checked ? "option--checked" : ""}`}>
+        <div
+          className={`option ${state.input3Checked ? "option--checked" : ""}`}
+        >
           <div className="option--col1">
             <input
               type="checkbox"
-              onClick={() => setInput3Checked(!input3Checked)}
+              onClick={() =>
+                setState({ ...state, input3Checked: !state.input3Checked })
+              }
             ></input>
             <div className="option--info">
               <h4>Customizable profile</h4>
