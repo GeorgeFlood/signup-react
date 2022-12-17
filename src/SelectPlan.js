@@ -1,8 +1,14 @@
 import { useState } from "react";
 
-const SelectPlan = function ({ setCurrentPage, setActiveButton }) {
+const SelectPlan = function ({
+  isChecked,
+  setIsChecked,
+  setCurrentPage,
+  setActiveButton,
+  setPlan,
+}) {
   const [selectedCard, setSelectedCard] = useState(null);
-  const [isChecked, setIsChecked] = useState(false);
+  // const [isChecked, setIsChecked] = useState(false);
 
   function handleCheckboxChange(event) {
     setIsChecked(event.target.checked);
@@ -10,6 +16,7 @@ const SelectPlan = function ({ setCurrentPage, setActiveButton }) {
 
   function handleCardClick(cardId) {
     setSelectedCard(cardId);
+    setPlan(cardId);
   }
 
   const handleClick = (page) => {

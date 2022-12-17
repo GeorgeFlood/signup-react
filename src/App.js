@@ -10,6 +10,10 @@ import Summary from "./Summary";
 const App = function () {
   const [currentPage, setCurrentPage] = useState("YourInfo");
   const [activeButton, setActiveButton] = useState("YourInfo");
+  const [plan, setPlan] = useState("");
+  const [isChecked, setIsChecked] = useState(false);
+
+  console.log(isChecked);
 
   return (
     <div className="container">
@@ -28,6 +32,9 @@ const App = function () {
         <SelectPlan
           setCurrentPage={setCurrentPage}
           setActiveButton={setActiveButton}
+          setPlan={setPlan}
+          setIsChecked={setIsChecked}
+          isChecked={isChecked}
         />
       )}
       {currentPage === "AddOns" && (
@@ -40,6 +47,8 @@ const App = function () {
         <Summary
           setCurrentPage={setCurrentPage}
           setActiveButton={setActiveButton}
+          plan={plan}
+          MonthOrYearBoolean={isChecked}
         />
       )}
     </div>

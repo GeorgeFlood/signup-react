@@ -1,8 +1,50 @@
-const Summary = function ({ setCurrentPage, setActiveButton }) {
+const Summary = function ({
+  setCurrentPage,
+  setActiveButton,
+  plan,
+  MonthOrYearBoolean,
+}) {
   const handleClick = function (page) {
     setActiveButton(page);
     setCurrentPage(page);
   };
+
+  let planString;
+  switch (plan) {
+    case 1:
+      planString = "Arcade";
+      break;
+    case 2:
+      planString = "Advanced";
+      break;
+    case 3:
+      planString = "Pro";
+      break;
+    default:
+      planString = "";
+  }
+
+  let price;
+  if (MonthOrYearBoolean) {
+    if (planString === "Arcade") {
+      price = "£90/yr";
+    } else if (planString === "Advanced") {
+      price = "£120/yr";
+    } else if (planString === "Pro") {
+      price = "£150/yr";
+    }
+  } else {
+    if (planString === "Arcade") {
+      price = "£9/mo";
+    } else if (planString === "Advanced") {
+      price = "£12/mo";
+    } else if (planString === "Pro") {
+      price = "£15/mo";
+    }
+  }
+
+  console.log(planString);
+
   return (
     <div className="page-container summary-container">
       <div className="header">
@@ -13,11 +55,17 @@ const Summary = function ({ setCurrentPage, setActiveButton }) {
       <div className="summary-box">
         <div className="top">
           <div className="custom-box">
-            <h3>Arcade (Monthly)</h3> {/*This needs to be dynmatic with JS */}
-            <a href="#">Change</a>
+            <h3>
+              {`${planString}`} (
+              {`${MonthOrYearBoolean ? "Yearly" : "Monthly"}`})
+            </h3>{" "}
+            {/*This needs to be dynmatic with JS */}
+            <a href="#" onClick={() => handleClick("SelectPlan")}>
+              Change
+            </a>
           </div>
           <div className="custom-box__price">
-            <h4>£9/mo</h4> {/*This needs to be dynmatic with JS */}
+            <h4>{`${price}`}</h4> {/*This needs to be dynmatic with JS */}
           </div>
         </div>
 
@@ -37,7 +85,7 @@ const Summary = function ({ setCurrentPage, setActiveButton }) {
       </div>
 
       <div className="total">
-        <p>Total (per Month)</p>
+        <p>Total ({`${MonthOrYearBoolean ? "Yearly" : "Monthly"}`})</p>
         <h3>+£12/mo</h3>
       </div>
 
